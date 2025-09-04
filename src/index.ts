@@ -1,7 +1,9 @@
 export default {
+  const url = new URL(request.url);
+  const prompt = url.searchParams.get('prompt') || 'space collide';
   async fetch(request, env) {
     const inputs = {
-      prompt: "KTM RC990",
+      prompt: prompt,
     };
 
     const response = await env.AI.run(
