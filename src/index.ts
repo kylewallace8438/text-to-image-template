@@ -1,7 +1,7 @@
 export default {
-  const url = new URL(request.url);
-  const prompt = url.searchParams.get('prompt') || 'space collide';
   async fetch(request, env) {
+    const url = new URL(request.url);
+    const prompt = url.searchParams.get('prompt') || 'space collide';
     const inputs = {
       prompt: prompt,
     };
@@ -14,6 +14,7 @@ export default {
     return new Response(response, {
       headers: {
         "content-type": "image/png",
+        "requested-prompt": prompt
       },
     });
   },
